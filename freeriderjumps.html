@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Free Rider Jumps</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/styles/styles.css">
+    
+    <style>
+        /* Keep original layout, just scale the game */
+        .game-container {
+            transform: scale(1.12);           /* ← make game bigger */
+            transform-origin: center center; /* keep centered */
+        }
+
+        /* Remove store junk */
+        .footer,
+        #ads-container {
+            display: none !important;
+        }
+
+        body {
+            background: #000;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="game-container" id="game-container">
+
+        <div class="centered-container">
+            <div class="freerider-canvas-container" id="freerider-canvas-container"
+                 style="visibility: hidden"></div>
+        </div>
+
+        <div class="centered-container">
+            <div class="phaser-canvas-container" id="phaser-canvas-container"></div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/scripts/main.bundle.js"></script>
+
+</body>
+</html>
+
+

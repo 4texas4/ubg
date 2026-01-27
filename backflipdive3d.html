@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Backflip Dive 3D</title>
+    <link rel="shortcut icon" href="https://4texas4.github.io/backflip-dive-3d/style/favicon.ico">
+    <link rel="stylesheet" href="https://4texas4.github.io/backflip-dive-3d/style/style.css">
+	<script src="/adinLoader.js"></script>
+	<script src="https://4texas4.github.io/backflip-dive-3d/UnityLoader.js"></script>
+    <script src="https://4texas4.github.io/backflip-dive-3d/UnityProgress.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "https://4texas4.github.io/backflip-dive-3d/build.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+    </script>
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      #gameContainer {
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gameContainer"></div>
+	<script>
+       if (typeof getAdinDomain !== 'undefined') {
+           const bodyTag = document.getElementsByTagName('body')[0];
+
+           let addAdinPreroll = document.createElement('script');
+            addAdinPreroll.src = getAdinDomain;
+            bodyTag.appendChild(addAdinPreroll);
+        }
+  </script>
+  </body>
+</html>
