@@ -1,41 +1,159 @@
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Backflip Dive 3D</title>
     <link rel="shortcut icon" href="https://4texas4.github.io/backflip-dive-3d/style/favicon.ico">
     <link rel="stylesheet" href="https://4texas4.github.io/backflip-dive-3d/style/style.css">
-	<script src="/adinLoader.js"></script>
-	<script src="https://4texas4.github.io/backflip-dive-3d/UnityLoader.js"></script>
-    <script src="https://4texas4.github.io/backflip-dive-3d/UnityProgress.js"></script>
-    <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "https://4texas4.github.io/backflip-dive-3d/build.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
-    </script>
+    <script src="/adinLoader.js"></script>
+    <script src="https://4texas4.github.io/backflip-dive-3d/UnityLoader.js"></script>
+    
     <style>
-      body, html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
-      #gameContainer {
-        width: 100vw !important;
-        height: 100vh !important;
-        margin: 0 !important;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="gameContainer"></div>
-	<script>
-       if (typeof getAdinDomain !== 'undefined') {
-           const bodyTag = document.getElementsByTagName('body')[0];
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background: #222;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        #gameContainer {
+            width: 100vw !important;
+            height: 100vh !important;
+            margin: 0 !important;
+        }
 
-           let addAdinPreroll = document.createElement('script');
+        /* Playful Loader Overlay */
+        #custom-loader {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #5db9ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: opacity 0.5s ease;
+        }
+
+        .diver {
+            font-size: 50px;
+            animation: flip 1.2s infinite ease-in-out;
+            margin-bottom: 15px;
+        }
+
+        @keyframes flip {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        .loading-text {
+            color: white;
+            font-weight: 800;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        #progress-wrap {
+            width: 200px;
+            height: 12px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #ffcc00;
+            transition: width 0.2s;
+        }
+
+        #pct-text {
+            color: white;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="custom-loader">
+        <div class="diver">🤸‍♂️</div>
+        <div class="loading-text">Backflip Dive 3D</div>
+        <div id="progress-wrap">
+            <div id="progress-fill"></div>
+        </div>
+        <div id="pct-text">0%</div>
+    </div>
+
+    <div id="gameContainer"></div>
+
+    <script>
+        const fill = document.getElementById('progress-fill');
+        const pct = document.getElementById('pct-text');
+        const loader = document.getElementById('custom-loader');
+        const container = document.getElementById("gameContainer");
+
+        // SPACE BAR EMULATION
+        let h=0;
+        const down = () => {
+            if(!h) {
+                h=1;
+                // Target the canvas inside the container
+                const canvas = container.querySelector("canvas");
+                if(canvas) canvas.dispatchEvent(new MouseEvent("mousedown", {bubbles:true, buttons:1}));
+            }
+        };
+        const up = () => {
+            if(h) {
+                h=0;
+                const canvas = container.querySelector("canvas");
+                if(canvas) canvas.dispatchEvent(new MouseEvent("mouseup", {bubbles:true}));
+            }
+        };
+
+        window.addEventListener("keydown", e => {
+            if(e.code === "Space") { e.preventDefault(); down(); }
+        }, {passive: false});
+
+        window.addEventListener("keyup", e => {
+            if(e.code === "Space") { e.preventDefault(); up(); }
+        }, {passive: false});
+
+        // UNITY INITIALIZATION
+        function handleProgress(instance, progress) {
+            let p = Math.min(Math.round(progress * 100), 100);
+            fill.style.width = p + "%";
+            pct.innerText = p + "%";
+            
+            if (progress === 1) {
+                loader.style.opacity = "0";
+                setTimeout(() => loader.style.display = "none", 500);
+            }
+        }
+
+        var gameInstance = UnityLoader.instantiate("gameContainer", "https://4texas4.github.io/backflip-dive-3d/build.json", {
+            onProgress: handleProgress,
+            Module: {
+                onRuntimeInitialized: function() {
+                    handleProgress(gameInstance, 1);
+                }
+            }
+        });
+
+        if (typeof getAdinDomain !== 'undefined') {
+            const bodyTag = document.getElementsByTagName('body')[0];
+            let addAdinPreroll = document.createElement('script');
             addAdinPreroll.src = getAdinDomain;
             bodyTag.appendChild(addAdinPreroll);
         }
-  </script>
-  </body>
+    </script>
+</body>
 </html>
