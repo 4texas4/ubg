@@ -6,6 +6,8 @@ Dune, dune.html
 
 Geometry Dash, gd.html
 
+Crossy Road, crossyroad.html
+
 People Playground, peopleplayground.html
 
 Cluster Rush, clusterrush.html
