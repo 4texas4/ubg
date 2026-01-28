@@ -8,6 +8,8 @@ Geometry Dash, gd.html
 
 Crossy Road, crossyroad.html
 
+Drive Mad, drivemad.html
+
 People Playground, peopleplayground.html
 
 Cluster Rush, clusterrush.html
