@@ -35,3 +35,7 @@ Magic Tiles 3D, magictiles3.html
 Block Blast, blockblast.html
 
 Bloxorz, bloxorz.html
+
+Cookie Clicker, cookieclicker.html
+
+Crazy Cattle 3D, crazycattle3d.html
