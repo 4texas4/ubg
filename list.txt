@@ -28,6 +28,8 @@ Snow Rider 3D, snowrider3d.html
 
 Super Mario Bros 3, sm3.html
 
+Rat Simulator 3D, ratsim3d.html
+
 Hill Climb Racing, hillclimbracing.html
 
 Bounce Masters, bouncemasters.html
