@@ -36,7 +36,7 @@ Bounce Masters, bouncemasters.html
 
 Magic Tiles 3D, magictiles3.html
 
-Block Blast, blockblast.html
+Block Blast, block.html
 
 Bloxorz, bloxorz.html
 
