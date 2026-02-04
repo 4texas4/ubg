@@ -1,6 +1,6 @@
 Blooket Hacks, blooket.html
 
-Movies, moviess.html
+Movies, movies.html
 
 MotoX3M, motox3m.html
 
@@ -40,6 +40,6 @@ Block Blast, blockblast.html
 
 Bloxorz, bloxorz.html
 
-Cookie Clicker, cookieclickerr.html
+Cookie Clicker, cookieclicker.html
 
 Crazy Cattle 3D, crazycattle3d.html
