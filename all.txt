@@ -49,3 +49,5 @@ Amaze, amaze.html
 Slope, slope.html
 
 Tomb of the mask, totm.html
+
+Smash Karts, smashkarts.html
