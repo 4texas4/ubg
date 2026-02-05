@@ -45,3 +45,5 @@ Cookie Clicker, cookieclicker.html
 Crazy Cattle 3D, crazycattle3d.html
 
 Amaze, amaze.html
+
+Slope, slope.html
