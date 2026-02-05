@@ -47,3 +47,5 @@ Crazy Cattle 3D, crazycattle3d.html
 Amaze, amaze.html
 
 Slope, slope.html
+
+Tomb of the mask, totm.html
