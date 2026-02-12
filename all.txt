@@ -4,6 +4,8 @@ Movies, movies.html
 
 Soundboard, soundboard.html
 
+AI, ai.html
+
 MotoX3M, motox3m.html
 
 Dune, dune.html
